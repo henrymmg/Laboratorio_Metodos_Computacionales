@@ -29,16 +29,16 @@ title("Animacion de la ecuacion de onda en 1D")
 xlabel("X")
 ylabel("U")
 
-datos = loadtxt("datos_finales.txt");
+data = loadtxt("datos_finales.txt");
 
 def init():
-    line.set_datos([], [])
+    line.set_data([], [])
     return line,
 
 def animate(i):
     global data
     x1 = linspace(0, 1, n)
-    y = data[i,:]
+    y = data[1]
     line.set_data(x1, y)
     return line,
 

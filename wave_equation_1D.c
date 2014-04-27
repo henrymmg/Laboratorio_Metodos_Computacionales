@@ -21,12 +21,12 @@ int main(){
   FILE *finales;
   FILE *iniciales;
     
-/*Archivos para la animacion*/
+/*Archivo para la animacion*/
   char filename1[20]="datos_finales.txt";
-  finales=fopen(filename1,"a");
-    
+  finales=fopen(filename1,"w");
+/*Archivo para la grafica*/    
   char filename[20]="datos_iniciales.txt";
-  iniciales=fopen(filename,"a");
+  iniciales=fopen(filename,"w");
     
 /*Ecuacion u*/
 for(i=0;i<n;i++){
@@ -63,7 +63,7 @@ fclose(iniciales);
     for(j=0;j<n_tiempo;j++){
         for(i=1;i<n-1;i++){
 	  u_futuro[i] = (2.0*(1.0-pow(r,2)))*u_presente[i] - u_pasado[i] + pow(r,2)*(u_presente[i+1] + u_presente[i-1]);
-            fprintf(finales, "%f %f\n", x[i], u_presente[i]);
+            fprintf(finales, "%f", u_futuro[i]);
         }
         fprintf(finales,"\n");
     }
